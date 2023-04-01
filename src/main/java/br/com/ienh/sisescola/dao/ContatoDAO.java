@@ -12,6 +12,7 @@ public class ContatoDAO extends DAOGenerics<Contato, Integer> {
 		super(Contato.class);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public List<Contato> obterContatosEmail(){
 		String consulta = "from Contato c where c.tipo = 'email' ";
 		Query query = getEntityManager().createQuery(consulta);

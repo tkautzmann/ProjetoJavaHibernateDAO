@@ -37,6 +37,11 @@ public class Aluno {
 			   joinColumns = @JoinColumn(name="aluno_id"),
 			   inverseJoinColumns = @JoinColumn(name="turma_id"))
 	private List<Turma> turmas;
+	@ManyToMany
+	@JoinTable(name = "aluno_responsavel",
+			   joinColumns = @JoinColumn(name="aluno_id"),
+			   inverseJoinColumns = @JoinColumn(name="responsavel_id"))
+	private List<Responsavel> responsaveis;
 	
 	public Aluno(){
 		contatos = new ArrayList<Contato>();
@@ -96,6 +101,22 @@ public class Aluno {
 
 	public void setContatos(List<Contato> contatos) {
 		this.contatos = contatos;
+	}
+
+	public List<Turma> getTurmas() {
+		return turmas;
+	}
+
+	public void setTurmas(List<Turma> turmas) {
+		this.turmas = turmas;
+	}
+
+	public List<Responsavel> getResponsaveis() {
+		return responsaveis;
+	}
+
+	public void setResponsaveis(List<Responsavel> responsaveis) {
+		this.responsaveis = responsaveis;
 	}
 	
 }
