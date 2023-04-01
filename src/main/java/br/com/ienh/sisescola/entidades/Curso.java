@@ -1,5 +1,6 @@
 package br.com.ienh.sisescola.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -26,7 +27,9 @@ public class Curso {
 			   inverseJoinColumns = @JoinColumn(name="disciplina_id"))
 	private List<Disciplina> disciplinas;
 	
-	public Curso() {}
+	public Curso() {
+		disciplinas = new ArrayList<Disciplina>();
+	}
 
 	public int getId() {
 		return id;

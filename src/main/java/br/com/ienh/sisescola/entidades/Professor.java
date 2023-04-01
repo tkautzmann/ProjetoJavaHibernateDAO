@@ -1,5 +1,6 @@
 package br.com.ienh.sisescola.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -22,7 +23,9 @@ public class Professor {
 			   cascade={CascadeType.ALL})
 	List<Turma> turmas;
 	
-	public Professor() {}
+	public Professor() {
+		turmas = new ArrayList<Turma>();
+	}
 
 	public int getId() {
 		return id;

@@ -1,5 +1,6 @@
 package br.com.ienh.sisescola.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.CascadeType;
@@ -35,7 +36,10 @@ public class Turma {
 			   inverseJoinColumns = @JoinColumn(name="disciplina_id"))
 	private List<Disciplina> disciplinas;
 	
-	public Turma() {}
+	public Turma() {
+		alunos = new ArrayList<Aluno>();
+		disciplinas = new ArrayList<Disciplina>();
+	}
 
 	public int getId() {
 		return id;

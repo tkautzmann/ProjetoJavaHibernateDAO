@@ -45,6 +45,8 @@ public class Aluno {
 	
 	public Aluno(){
 		contatos = new ArrayList<Contato>();
+		turmas = new ArrayList<Turma>();
+		responsaveis = new ArrayList<Responsavel>();
 	}
 
 	public int getId() {

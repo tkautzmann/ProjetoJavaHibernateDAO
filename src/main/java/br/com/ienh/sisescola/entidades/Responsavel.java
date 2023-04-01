@@ -1,5 +1,6 @@
 package br.com.ienh.sisescola.entidades;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Entity;
@@ -26,7 +27,9 @@ public class Responsavel {
 			   inverseJoinColumns = @JoinColumn(name="aluno_id"))
 	private List<Aluno> alunos;
 	
-	public Responsavel() {}
+	public Responsavel() {
+		alunos = new ArrayList<Aluno>();
+	}
 
 	public int getId() {
 		return id;
