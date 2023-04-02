@@ -5,7 +5,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import br.com.ienh.sisescola.dao.AlunoDAO;
+import br.com.ienh.sisescola.dao.ContatoDAO;
 import br.com.ienh.sisescola.entidades.Aluno;
+import br.com.ienh.sisescola.entidades.Contato;
 import br.com.ienh.sisescola.uteis.UserInput;
 
 public class AlunoActions {
@@ -146,5 +148,5 @@ public class AlunoActions {
 		}
 		
 	}
-	
+
 }

@@ -9,7 +9,7 @@ public class App {
 
 	public static void main(String[] args) {
 		
-		Logger.getLogger("org.hibernate").setLevel(Level.OFF);
+		//Logger.getLogger("org.hibernate").setLevel(Level.OFF);
 		
 		UserInterface.run();
 		

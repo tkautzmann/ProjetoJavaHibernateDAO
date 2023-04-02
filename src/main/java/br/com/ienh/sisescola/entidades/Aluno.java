@@ -30,7 +30,7 @@ public class Aluno {
 	private String endereco;
 	private LocalDate nascimento;
 	@OneToMany(mappedBy = "aluno",
-			   cascade={CascadeType.ALL})
+			   cascade={CascadeType.REMOVE})
 	private List<Contato> contatos;
 	@ManyToMany
 	@JoinTable(name = "aluno_turma",

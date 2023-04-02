@@ -18,6 +18,7 @@ public class MenuProfessor implements Menu {
 			System.out.println("2. Atualizar");
 			System.out.println("3. Remover");
 			System.out.println("4. Buscar por id");
+			System.out.println("5. Buscar todos");
 			System.out.println("---------------------");
 			System.out.println("0. Sair deste menu");
 			System.out.println();
@@ -28,6 +29,7 @@ public class MenuProfessor implements Menu {
 			else if(option == 2) professorActions.atualizar();
 			else if(option == 3) professorActions.remover();
 			else if(option == 4) professorActions.buscarPorId();
+			else if(option == 5) professorActions.buscarTodos();
 			else if(option == 0) break;
 			
 		}

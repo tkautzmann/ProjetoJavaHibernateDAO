@@ -18,7 +18,7 @@ public class Contato {
 	private int id;
 	private String descricao;
 	private String tipo;
-	@ManyToOne(cascade={CascadeType.ALL})
+	@ManyToOne
 	@JoinColumn(name="aluno_id")
 	private Aluno aluno;
 	

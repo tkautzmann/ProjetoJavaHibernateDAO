@@ -33,23 +33,31 @@ public class DAOGenerics <T, U> implements DAO<T, U> {
 	public void insert(T obj) throws Exception{
 		entityManager.getTransaction().begin();
 		entityManager.persist(obj);
+		flushAndClear();
 		entityManager.getTransaction().commit();
 	}
 
 	public void update(T obj) throws Exception{
 		entityManager.getTransaction().begin();
 		entityManager.merge(obj);
+		flushAndClear();
 		entityManager.getTransaction().commit();
 	}
 
 	public void remove(T obj) throws Exception{
 		entityManager.getTransaction().begin();
 		entityManager.remove(obj);
+		flushAndClear();
 		entityManager.getTransaction().commit();
 	}
 	
 	protected EntityManager getEntityManager() {
 		return entityManager;
+	}
+	
+	public void flushAndClear() {
+		entityManager.flush();
+		entityManager.clear();
 	}
 	
 }

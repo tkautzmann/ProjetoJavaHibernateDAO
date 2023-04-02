@@ -18,7 +18,7 @@ public class ContatoDAO extends DAOGenerics<Contato, Integer> {
 		Query query = getEntityManager().createQuery(consulta);
 		return query.getResultList();
 	}
-
+	
 }
 
 

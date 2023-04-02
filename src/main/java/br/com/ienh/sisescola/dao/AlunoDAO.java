@@ -8,7 +8,7 @@ public class AlunoDAO extends DAOGenerics<Aluno, Integer> {
 	public AlunoDAO() throws Exception {
 		super(Aluno.class);
 	}
-
+	
 }
 
 

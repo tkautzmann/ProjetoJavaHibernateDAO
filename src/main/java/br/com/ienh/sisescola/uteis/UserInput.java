@@ -12,7 +12,7 @@ public class UserInput {
 	
 	public String readText(String prompt) {
 	    System.out.println(prompt);
-		return scanner.nextLine();
+		return scanner.next();
 	}
 	
 	public int readInt(String prompt) {
