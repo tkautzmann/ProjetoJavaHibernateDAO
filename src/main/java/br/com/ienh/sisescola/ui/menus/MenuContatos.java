@@ -13,7 +13,7 @@ public class MenuContatos implements Menu {
 		while (true) {
 			
 			System.out.println();
-			System.out.println("Contatos de aluno:");
+			System.out.println("CONTATOS:");
 			System.out.println("1. Inserir");
 			System.out.println("2. Remover");
 			System.out.println("3. Visualizar contatos de aluno");

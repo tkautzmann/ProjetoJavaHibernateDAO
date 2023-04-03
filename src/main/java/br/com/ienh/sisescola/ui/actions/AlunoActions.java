@@ -5,9 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import br.com.ienh.sisescola.dao.AlunoDAO;
-import br.com.ienh.sisescola.dao.ContatoDAO;
 import br.com.ienh.sisescola.entidades.Aluno;
-import br.com.ienh.sisescola.entidades.Contato;
 import br.com.ienh.sisescola.uteis.UserInput;
 
 public class AlunoActions {
@@ -32,6 +30,7 @@ public class AlunoActions {
 			
 			Aluno aluno = new Aluno();
 			
+			System.out.println();
 			System.out.println("Informe os dados de um novo aluno:");
 			
 			aluno.setNome(userInput.readText("Nome:"));
@@ -58,11 +57,18 @@ public class AlunoActions {
 		
 		try {
 			
+			System.out.println();
+			
 			int id = userInput.readInt("Informe o id do aluno que deseja atualizar:");
+			
 			Aluno aluno = alunoDAO.findById(id);
+			
 			if(aluno == null) {
+				
 				System.out.println("Aluno não encontrado!");
+			
 			}else {
+				
 				System.out.println("Informe os novos dados do aluno:");
 				
 				aluno.setNome(userInput.readText("Nome:"));
@@ -71,8 +77,11 @@ public class AlunoActions {
 				aluno.setNascimento(LocalDate.parse(userInput.readText("Data de Nascimento (aaaa-mm-dd):"), 
 													DateTimeFormatter.ISO_DATE));
 				aluno.setCpf(userInput.readText("CPF:"));
+				
 				alunoDAO.update(aluno);;
+				
 				System.out.println("Aluno atualizado com sucesso!");
+				
 			}
 					
 		}catch(Exception e) {
@@ -88,13 +97,22 @@ public class AlunoActions {
 		
 		try {
 			
+			System.out.println();
+			
 			int id = userInput.readInt("Informe o id do aluno que deseja remover:");
+			
 			Aluno aluno = alunoDAO.findById(id);
+			
 			if(aluno == null) {
+				
 				System.out.println("Aluno não encontrado!");
+			
 			}else {
+				
 				alunoDAO.remove(aluno);
+				
 				System.out.println("Aluno removido com sucesso!");
+			
 			}
 			
 		}catch(Exception e) {
@@ -110,12 +128,20 @@ public class AlunoActions {
 		
 		try {
 			
+			System.out.println();
+			
 			int id = userInput.readInt("Informe o id do aluno que deseja buscar:");
+			
 			Aluno aluno = alunoDAO.findById(id);
+			
 			if(aluno == null) {
+				
 				System.out.println("Aluno não encontrado!");
+			
 			}else {
+				
 				System.out.println(aluno.getNome());
+			
 			}
 			
 		}catch(Exception e) {
@@ -131,13 +157,20 @@ public class AlunoActions {
 		
 		try {	
 			
+			System.out.println();
+			
 			List<Aluno> alunos = alunoDAO.findAll();
+			
 			if(alunos.size() == 0) {
+				
 				System.out.println("Não há alunos para visualizar!");
+			
 			}else {
+				
 				for (Aluno aluno : alunos) {
 					System.out.println(aluno.getId() + " - " + aluno.getNome());
 				}
+				
 			}
 			
 		}catch(Exception e) {

@@ -20,10 +20,11 @@ public class ProfessorActions {
 		
 		try {
 			
-			Professor professor = new Professor();
+			System.out.println();
 			
 			System.out.println("Informe os dados de um novo professor:");
 			
+			Professor professor = new Professor();
 			professor.setNome(userInput.readText("Nome:"));
 			
 			professorDAO.insert(professor);
@@ -55,13 +56,20 @@ public class ProfessorActions {
 		
 		try {	
 			
+			System.out.println();
+			
 			List<Professor> professores = professorDAO.findAll();
+			
 			if(professores.size() == 0) {
+				
 				System.out.println("Não há professores para visualizar!");
+			
 			}else {
+				
 				for (Professor professor : professores) {
 					System.out.println(professor.getId() + " - " + professor.getNome());
 				}
+				
 			}
 			
 		}catch(Exception e) {

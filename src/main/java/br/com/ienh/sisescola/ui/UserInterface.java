@@ -6,7 +6,7 @@ public class UserInterface {
 
 	public static void run() {
 		
-		String[] logoAscii = {
+		String[] logo = {
 				"",
 				"       / \\__",
 	            "     (       @\\___",
@@ -20,7 +20,7 @@ public class UserInterface {
 	            ""
 		};
 
-        for (String linha : logoAscii)
+        for (String linha : logo)
             System.out.println(linha);
         
         new MenuMain().executar();

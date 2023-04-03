@@ -13,7 +13,7 @@ public class MenuAluno implements Menu {
 		while (true) {
 			
 			System.out.println();
-			System.out.println("Aluno:");
+			System.out.println("ALUNOS");
 			System.out.println("1. Inserir");
 			System.out.println("2. Atualizar");
 			System.out.println("3. Remover");

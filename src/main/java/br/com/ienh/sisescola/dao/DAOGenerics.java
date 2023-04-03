@@ -6,7 +6,6 @@ import br.com.ienh.sisescola.database.ConnectionDatabase;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
-//aplicação do padrão DAO
 public class DAOGenerics <T, U> implements DAO<T, U> {
 	
 	private ConnectionDatabase connection;
@@ -16,16 +15,17 @@ public class DAOGenerics <T, U> implements DAO<T, U> {
 	public DAOGenerics(Class<T> persistedClass) throws Exception{
 		connection = ConnectionDatabase.getConnection();
 		entityManager = connection.getEntityManager();
-		this.entityType = persistedClass;
+		entityType = persistedClass;
 	}
 
 	public T findById(U id) throws Exception{
-		T obj = connection.getEntityManager().find(entityType, id);
+		T obj = entityManager.find(entityType, id);
 		return obj;
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<T> findAll() throws Exception{
-		String consulta = "from Aluno";
+		String consulta = "from " + entityType.getSimpleName();
 		Query query = entityManager.createQuery(consulta);
 		return query.getResultList();
 	}
