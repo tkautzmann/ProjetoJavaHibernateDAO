@@ -30,7 +30,7 @@ CREATE TABLE `aluno` (
   `numero_matricula` varchar(7) DEFAULT NULL,
   `cpf` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `aluno` (
 
 LOCK TABLES `aluno` WRITE;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES (1,'Marcos','2002-10-21','Rua do Limoeiro, 162',NULL,NULL),(3,'Maria Santos','2006-09-27','Rua Lima e Silva, 100',NULL,NULL),(4,'Pedro','2005-10-05','Rua Esteio, 152',NULL,NULL),(19,'Carlos',NULL,NULL,NULL,NULL),(32,'Carla',NULL,NULL,NULL,NULL),(45,'Antônio',NULL,NULL,NULL,NULL),(47,'Ana','2010-05-21','Rua tal, 276','1187625','11726152412'),(48,'Vanessa Bueno','2005-10-04','Rua dos Bobos, 0','9182765','00265487361');
+INSERT INTO `aluno` VALUES (1,'Marcos','2002-10-21','Rua do Limoeiro, 162',NULL,NULL),(3,'Maria Santos','2006-09-27','Rua Lima e Silva, 100',NULL,NULL),(4,'Pedro','2005-10-05','Rua Esteio, 152',NULL,NULL),(19,'Carlos',NULL,NULL,NULL,NULL),(32,'Carla',NULL,NULL,NULL,NULL),(45,'Antônio',NULL,NULL,NULL,NULL),(47,'Ana','2010-05-21','Rua tal, 276','1187625','11726152412'),(48,'Vanessa Bueno','2005-10-04','Rua dos Bobos, 0','9182765','00265487361'),(49,'Magali','2003-10-14','Rua Amantino Petefi, 45','1212','232323'),(50,'Magali','2003-10-14','Rua Amantino Petefi, 45','1212','232323'),(51,'Magali','2003-10-14','Rua Amantino Petefi, 45','1212','232323'),(52,'Magali','2003-10-14','Rua Amantino Petefi, 45','1212','232323');
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +112,7 @@ CREATE TABLE `contato` (
   PRIMARY KEY (`id`),
   KEY `contato_ibfk_1` (`aluno_id`),
   CONSTRAINT `contato_ibfk_1` FOREIGN KEY (`aluno_id`) REFERENCES `aluno` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,7 +121,7 @@ CREATE TABLE `contato` (
 
 LOCK TABLES `contato` WRITE;
 /*!40000 ALTER TABLE `contato` DISABLE KEYS */;
-INSERT INTO `contato` VALUES (9,'email@gmail.com','email',1),(10,'30378200','fone',1),(11,'30378298','fone',1),(12,'996732871','fone',1);
+INSERT INTO `contato` VALUES (9,'email@gmail.com','email',1),(10,'30378200','fone',1),(11,'30378298','fone',1),(12,'996732871','fone',1),(13,'999002828','telefone',51),(14,'999002828','telefone',52);
 /*!40000 ALTER TABLE `contato` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -233,10 +233,10 @@ DROP TABLE IF EXISTS `professor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `professor` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -245,6 +245,7 @@ CREATE TABLE `professor` (
 
 LOCK TABLES `professor` WRITE;
 /*!40000 ALTER TABLE `professor` DISABLE KEYS */;
+INSERT INTO `professor` VALUES (1,'Antônio'),(2,'Antônio'),(3,'Antônio');
 /*!40000 ALTER TABLE `professor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,7 +288,7 @@ CREATE TABLE `turma` (
   PRIMARY KEY (`id`),
   KEY `professor_id` (`professor_id`),
   CONSTRAINT `turma_ibfk_1` FOREIGN KEY (`professor_id`) REFERENCES `professor` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -296,7 +297,7 @@ CREATE TABLE `turma` (
 
 LOCK TABLES `turma` WRITE;
 /*!40000 ALTER TABLE `turma` DISABLE KEYS */;
-INSERT INTO `turma` VALUES (1,'2023/1',NULL);
+INSERT INTO `turma` VALUES (1,'2023/1',NULL),(2,'2022/1',NULL),(3,'2021/2',NULL),(4,'2021/2',2),(5,'2021/2',3);
 /*!40000 ALTER TABLE `turma` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -309,4 +310,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-03 14:49:46
+-- Dump completed on 2023-04-13 10:16:22

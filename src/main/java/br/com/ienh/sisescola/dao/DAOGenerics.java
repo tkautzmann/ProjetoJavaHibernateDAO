@@ -6,7 +6,7 @@ import br.com.ienh.sisescola.database.ConnectionDatabase;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 
-public class DAOGenerics <T, U> implements DAO<T, U> {
+public class DAOGenerics <T, U> implements DAO<T, U>{
 	
 	private ConnectionDatabase connection;
 	private EntityManager entityManager;

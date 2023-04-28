@@ -48,7 +48,7 @@ public class TurmaActions {
 			System.out.println();
 			List<Turma> turmas = turmaDAO.findAll();
 			if(turmas.size() == 0) {
-				System.out.println("Não há alunos para visualizar!");
+				System.out.println("NÃO HÁ TURMAS PARA MOSTRAR!");
 			}else {
 				for (Turma turma : turmas) {
 					System.out.println(turma.getId() + " - " + turma.getSemestre());
@@ -56,7 +56,7 @@ public class TurmaActions {
 			}
 		}catch(Exception e) {
 			System.out.println("Ocorreu um erro ao tentar buscar as turmas! Entre em contato com o administrador!");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		
 	}
@@ -64,30 +64,30 @@ public class TurmaActions {
 	public void vincularAluno() {
 		
 		try {
-			
 			int idTurma = userInput.readInt("Id da turma:");
 			Turma turma = turmaDAO.findById(idTurma);
 			
+			System.out.println();
+			
 			if(turma == null) {
-				System.out.println("Turma não encontrada!");
+				System.out.println("TURMA NÃO ENCONTRADA!");
 			}else {
 				int idAluno = userInput.readInt("Id do aluno:");
 				Aluno aluno = alunoDAO.findById(idAluno);
 				if(aluno == null) {
-					System.out.println("Aluno não encontrado!");
+					System.out.println("ALUNO NÃO ENCONTRADO!");
 				}else {
 					String option = userInput.readText("Vincular aluno à turma? (y/n)");
 					if(option.equals("y")) {
 						turma.getAlunos().add(aluno);
 						turmaDAO.update(turma);
-						System.out.println("Aluno vinculado à turma.");
+						System.out.println("ALUNO VINCULADO À TURMA.");
 					}
 				}
 			}
-			
 		}catch(Exception e) {
 			System.out.println("Ocorreu um erro! Entre em contato com o administrador!");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		
 	}
@@ -95,13 +95,12 @@ public class TurmaActions {
 	public void visualizarAlunosTurma() {
 		
 		try {
-			
 			System.out.println();
 			int idTurma = userInput.readInt("Id da turma:");
 			Turma turma = turmaDAO.findById(idTurma);
 			
 			if(turma == null) {
-				System.out.println("Turma não encontrada!");
+				System.out.println("TURMA NÃO ENCONTRADA!");
 			}else {
 				System.out.println();
 				List<Aluno> alunos = turma.getAlunos();
@@ -109,7 +108,6 @@ public class TurmaActions {
 					System.out.println(aluno.getId() + " - " + aluno.getNome());
 				}
 			}
-			
 		}catch(Exception e) {
 			System.out.println("Ocorreu um erro! Entre em contato com o administrador!");
 			e.printStackTrace();

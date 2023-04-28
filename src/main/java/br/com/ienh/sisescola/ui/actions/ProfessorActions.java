@@ -13,13 +13,11 @@ public class ProfessorActions {
 	
 	public ProfessorActions() {
 		userInput = new UserInput();
-		
 	}
 	
 	public void inserir() {
 		
 		try {
-			
 			System.out.println();
 			
 			System.out.println("Informe os dados de um novo professor:");
@@ -30,12 +28,9 @@ public class ProfessorActions {
 			professorDAO.insert(professor);
 			
 			System.out.println("Professor registrado com sucesso!");
-			
 		}catch(Exception e) {
-			
 			System.out.println("Ocorreu um erro ao tentar registrar o professor! Entre em contato com o administrador!");
-			e.printStackTrace();
-			
+			//e.printStackTrace();
 		}
 		
 	}
@@ -55,28 +50,21 @@ public class ProfessorActions {
 	public void buscarTodos() {
 		
 		try {	
-			
 			System.out.println();
 			
 			List<Professor> professores = professorDAO.findAll();
 			
 			if(professores.size() == 0) {
-				
-				System.out.println("Não há professores para visualizar!");
-			
+				System.out.println("NÃO HÁ PROFESSORES PARA MOSTRAR!");
 			}else {
-				
 				for (Professor professor : professores) {
 					System.out.println(professor.getId() + " - " + professor.getNome());
 				}
-				
 			}
 			
 		}catch(Exception e) {
-			
 			System.out.println("Ocorreu um erro ao tentar buscar os professores! Entre em contato com o administrador!");
-			e.printStackTrace();
-			
+			//e.printStackTrace();
 		}
 		
 	}

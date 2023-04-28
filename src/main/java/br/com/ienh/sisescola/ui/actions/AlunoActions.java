@@ -27,12 +27,11 @@ public class AlunoActions {
 	public void inserir() {
 		
 		try {
-			
 			Aluno aluno = new Aluno();
 			
 			System.out.println();
-			System.out.println("Informe os dados de um novo aluno:");
 			
+			System.out.println("Informe os dados de um novo aluno:");
 			aluno.setNome(userInput.readText("Nome:"));
 			aluno.setNumeroMatricula(userInput.readText("Número de matrícula:"));
 			aluno.setEndereco(userInput.readText("Endereço:"));
@@ -42,13 +41,11 @@ public class AlunoActions {
 			
 			alunoDAO.insert(aluno);
 			
-			System.out.println("Aluno registrado com sucesso!");
-			
+			System.out.println();
+			System.out.println("ALUNO REGISTRADO COM SUCESSO!");
 		}catch(Exception e) {
-			
 			System.out.println("Ocorreu um erro ao tentar registrar o aluno! Entre em contato com o administrador!");
-			e.printStackTrace();
-			
+			//e.printStackTrace();
 		}
 		
 	}
@@ -56,7 +53,6 @@ public class AlunoActions {
 	public void atualizar() {
 		
 		try {
-			
 			System.out.println();
 			
 			int id = userInput.readInt("Informe o id do aluno que deseja atualizar:");
@@ -64,11 +60,8 @@ public class AlunoActions {
 			Aluno aluno = alunoDAO.findById(id);
 			
 			if(aluno == null) {
-				
 				System.out.println("Aluno não encontrado!");
-			
 			}else {
-				
 				System.out.println("Informe os novos dados do aluno:");
 				
 				aluno.setNome(userInput.readText("Nome:"));
@@ -80,15 +73,13 @@ public class AlunoActions {
 				
 				alunoDAO.update(aluno);;
 				
-				System.out.println("Aluno atualizado com sucesso!");
-				
+				System.out.println();
+				System.out.println("ALUNO ATUALIZADO COM SUCESSO!");
 			}
 					
 		}catch(Exception e) {
-			
 			System.out.println("Ocorreu um erro ao tentar remover o aluno! Entre em contato com o administrador!");
-			e.printStackTrace();
-			
+			//e.printStackTrace();
 		}
 		
 	}
@@ -96,30 +87,23 @@ public class AlunoActions {
 	public void remover() {
 		
 		try {
-			
 			System.out.println();
 			
 			int id = userInput.readInt("Informe o id do aluno que deseja remover:");
 			
 			Aluno aluno = alunoDAO.findById(id);
 			
+			System.out.println();
+			
 			if(aluno == null) {
-				
-				System.out.println("Aluno não encontrado!");
-			
+				System.out.println("ALUNO NÃO ENCONTRADO!");
 			}else {
-				
 				alunoDAO.remove(aluno);
-				
-				System.out.println("Aluno removido com sucesso!");
-			
+				System.out.println("ALUNO REMOVIDO COM SUCESSO!");
 			}
-			
 		}catch(Exception e) {
-			
 			System.out.println("Ocorreu um erro ao tentar remover o aluno! Entre em contato com o administrador!");
-			e.printStackTrace();
-			
+			//e.printStackTrace();
 		}
 		
 	}
@@ -127,28 +111,22 @@ public class AlunoActions {
 	public void buscarPorId() {
 		
 		try {
-			
 			System.out.println();
-			
+	
 			int id = userInput.readInt("Informe o id do aluno que deseja buscar:");
 			
 			Aluno aluno = alunoDAO.findById(id);
 			
+			System.out.println();
+			
 			if(aluno == null) {
-				
-				System.out.println("Aluno não encontrado!");
-			
+				System.out.println("ALUNO NÃO ENCONTRADO!");
 			}else {
-				
 				System.out.println(aluno.getNome());
-			
 			}
-			
 		}catch(Exception e) {
-			
 			System.out.println("Ocorreu um erro ao tentar buscar o aluno! Entre em contato com o administrador!");
-			e.printStackTrace();
-			
+			//e.printStackTrace();
 		}
 		
 	}
@@ -156,28 +134,22 @@ public class AlunoActions {
 	public void buscarTodos() {
 		
 		try {	
-			
 			System.out.println();
 			
 			List<Aluno> alunos = alunoDAO.findAll();
 			
-			if(alunos.size() == 0) {
-				
-				System.out.println("Não há alunos para visualizar!");
+			System.out.println();
 			
+			if(alunos.size() == 0) {
+				System.out.println("NÃO HÁ ALUNOS PARA VISUALIZAR!");
 			}else {
-				
 				for (Aluno aluno : alunos) {
 					System.out.println(aluno.getId() + " - " + aluno.getNome());
 				}
-				
 			}
-			
 		}catch(Exception e) {
-			
 			System.out.println("Ocorreu um erro ao tentar buscar os alunos! Entre em contato com o administrador!");
-			e.printStackTrace();
-			
+			//e.printStackTrace();
 		}
 		
 	}

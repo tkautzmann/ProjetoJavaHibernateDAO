@@ -29,19 +29,17 @@ public class ContatoActions {
 	public void inserir() {
 		
 		try {
-			
 			System.out.println();
 			
 			int id = userInput.readInt("Informe o id do aluno que deseja adicionar contato:");
 			
 			Aluno aluno = alunoDAO.findById(id);
 			
-			if(aluno == null) {
-				
-				System.out.println("Aluno inexistente!");
+			System.out.println();
 			
+			if(aluno == null) {
+				System.out.println("ALUNO INEXISTENTE!");
 			}else {
-				
 				System.out.println("Informe os dados de um novo contato:");
 				
 				Contato contato = new Contato();
@@ -51,15 +49,12 @@ public class ContatoActions {
 				
 				contatoDAO.insert(contato);
 				
-				System.out.println("Contato registrado com sucesso!");
-				
+				System.out.println();
+				System.out.println("CONTATO REGISTRADO COM SUCESSO!");
 			}
-			
 		}catch(Exception e) {
-			
 			System.out.println("Ocorreu um erro ao tentar registrar o contato! Entre em contato com o administrador!");
-			e.printStackTrace();
-			
+			//e.printStackTrace();
 		}
 		
 	}
@@ -67,28 +62,23 @@ public class ContatoActions {
 	public void remover() {
 		
 		try {
-			
 			System.out.println();
 			
 			int id = userInput.readInt("Informe o id do aluno que deseja remover contato:");
 			
 			Aluno aluno = alunoDAO.findById(id);
 			
-			if(aluno == null) {
-				
-				System.out.println("Aluno inexistente!");
+			System.out.println();
 			
+			if(aluno == null) {
+				System.out.println("ALUNO INEXISTENTE!");
 			}else {
-				
 				List<Contato> contatos = aluno.getContatos();
 				
 				if(contatos.size() == 0) {
-					
-					System.out.println("Este aluno não possui contatos:");
-				
+					System.out.println("ESTE ALUNO NÃO POSSUI CONTATOS PARA MOSTRAR!");
 				}else {
-					
-					System.out.println("Exibindo contatos do aluno:");
+					System.out.println("EXIBINDO CONTATOS DO ALUNO:");
 					
 					for (Contato contato : contatos) {
 						System.out.println(contato.getId() + " - " +
@@ -99,20 +89,16 @@ public class ContatoActions {
 					int idContato = userInput.readInt("Informe o id do contato que deseja remover:");
 					
 					Contato contato = contatoDAO.findById(idContato);
-					
 					contatoDAO.remove(contato);
 					
-					System.out.println("Contato removido com sucesso!");
-					
+					System.out.println();
+					System.out.println("CONTATO REMOVIDO COM SUCESSO!");
 				}
 				
 			}
-			
 		}catch(Exception e) {
-			
 			System.out.println("Ocorreu um erro ao tentar registrar o contato! Entre em contato com o administrador!");
-			e.printStackTrace();
-			
+			//e.printStackTrace();
 		}
 		
 	}
@@ -120,38 +106,29 @@ public class ContatoActions {
 	public void visualizarPorAluno() {
 		
 		try {
-			
 			System.out.println();
 			
 			int id = userInput.readInt("Informe o id do aluno que deseja ver contatos:");
 			
 			Aluno aluno = alunoDAO.findById(id);
 			
-			if(aluno == null) {
-				
-				System.out.println("Aluno não encontrado!");
+			System.out.println();
 			
+			if(aluno == null) {
+				System.out.println("ALUNO NÃO ENCONTRADO!");
 			}else {
-				
 				List<Contato> contatos = aluno.getContatos();
-				
 				if(contatos.size() == 0) {
-					
-					System.out.println("Não há contatos para apresentar!");
+					System.out.println("NÃO HÁ CONTATOS PARA APRESENTAR!");
 				}else {
-					
 					for (Contato contato : contatos) {
 						System.out.println(contato.getDescricao() + " - " + contato.getTipo());
 					}
-					
 				}
 			}
-			
 		}catch(Exception e) {
-			
 			System.out.println("Ocorreu um erro! Entre em contato com o administrador!");
-			e.printStackTrace();
-			
+			//e.printStackTrace();
 		}
 		
 	}
